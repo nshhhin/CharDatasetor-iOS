@@ -19,8 +19,6 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func tappedStartBtn(_ sender: Any) {
-        // ✏️TODO✏️ : R.swiftの遷移
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "DrawingVC", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "DrawingVC")
         next.modalTransitionStyle = .crossDissolve
@@ -28,7 +26,6 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func tappedFromBtn(_ sender: Any) {
-        // ✏️TODO✏️ : GoogleフォームをWebビューで表示
         let storyboard: UIStoryboard = UIStoryboard(name: "GoogleFormVC", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "GoogleFormVC")
         next.modalTransitionStyle = .crossDissolve

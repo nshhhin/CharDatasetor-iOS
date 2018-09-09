@@ -30,7 +30,8 @@ extension DrawingVC {
         let id = curCharStroke.id
         let canvasImage = canvas.image
         let userName = "Aさん"
-        var child = reference.child( userName + "/" + name + "/" + String(id) + ".png")
+        let fileName = userName + "/" + name + "/" + String(id)
+        var child = reference.child(  fileName + ".png")
         var data = UIImagePNGRepresentation(canvasImage!)!
         child.putData(data, metadata: nil) { (metadata, nil) in
         }
@@ -39,17 +40,27 @@ extension DrawingVC {
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
-            
-            child = reference.child( userName + "/" + name + "/" + String(id) + ".json")
+            child = reference.child( fileName + ".json")
             child.putData(jsonData, metadata: nil) { (metadata, nil) in
             }
         } catch let error {
             print(error)
         }
         
+        let jsonStr = jsonObj.description
+        data = jsonStr.data(using: String.Encoding.utf8)!
         
-        
-        
+        do {
+            let documentPath = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory,
+                .userDomainMask, true)[0]
+            
+            let url = URL(fileURLWithPath: documentPath + "/" + fileName + ".json")
+            print(url)
+            try data.write(to: url)
+        } catch {
+            // Failed to write file
+        }
         
         curCharStroke.saveStrokes()
         curCharStroke = listCharStrokes.removeFirst()
@@ -68,7 +79,6 @@ extension DrawingVC {
         
         redrawCanvas()
         updateLabel()
-        
     }
     
     @IBAction func tappedDismissBtn(_ sender: Any) {

@@ -41,6 +41,7 @@ class DrawingVC: UIViewController {
             handLabel.isHidden = true
         }
         
+        // ✏️TODO:書いた文字を除外処理✏️
         for figure in figures {
             let name = figure["Name"] as! String
             let fileName = figure["FileName"] as! String

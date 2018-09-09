@@ -34,6 +34,7 @@
 		F338A09D2145281700221ECD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F338A09A2145281200221ECD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F338A0A02145479C00221ECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F338A09F2145479C00221ECD /* GoogleService-Info.plist */; };
 		F379CEE4214552FE00113841 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEE3214552FE00113841 /* CGPoint+Extension.swift */; };
+		F379CEE6214572BC00113841 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEE5214572BC00113841 /* DesignableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		F338A09A2145281200221ECD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F338A09F2145479C00221ECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F379CEE3214552FE00113841 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		F379CEE5214572BC00113841 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		F338A07E21412F7C00221ECD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F379CEE5214572BC00113841 /* DesignableView.swift */,
 				F338A0832144C88100221ECD /* Array+Extension.swift */,
 				F338A07B214126BC00221ECD /* UIView+Extension.swift */,
 				F338A0912144EA1A00221ECD /* UIAlert+Extension.swift */,
@@ -511,6 +514,7 @@
 				F338A0882144DE6800221ECD /* HomeVC.swift in Sources */,
 				F338A0922144EA1A00221ECD /* UIAlert+Extension.swift in Sources */,
 				F338A0942144EAE800221ECD /* UIApplication+Extension.swift in Sources */,
+				F379CEE6214572BC00113841 /* DesignableView.swift in Sources */,
 				F338A07C214126BC00221ECD /* UIView+Extension.swift in Sources */,
 				F338A0672140C4DD00221ECD /* CharStrokeModel.swift in Sources */,
 				F338A0692140C51700221ECD /* StrokeModel.swift in Sources */,
@@ -700,6 +704,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "CharDatasetor-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -724,6 +729,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "CharDatasetor-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

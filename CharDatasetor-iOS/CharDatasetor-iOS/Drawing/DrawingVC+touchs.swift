@@ -132,7 +132,6 @@ extension DrawingVC {
         }
         
         lastDrawImage = canvas.image
-        
     }
 
 }

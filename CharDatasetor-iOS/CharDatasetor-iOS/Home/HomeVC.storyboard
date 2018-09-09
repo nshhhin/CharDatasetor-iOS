@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前を半角英数字で入力" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MX-xD-O0e">
-                                <rect key="frame" x="20" y="191" width="335" height="30"/>
+                                <rect key="frame" x="20" y="342" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -59,6 +59,13 @@
                                     <action selector="tappedFromBtn:" destination="r8F-kA-XXd" eventType="touchUpInside" id="Ymb-a5-UBo"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pen" translatesAutoresizingMaskIntoConstraints="NO" id="8iV-R5-Vy1">
+                                <rect key="frame" x="127.5" y="181" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8iV-R5-Vy1" secondAttribute="height" multiplier="1:1" id="Bz1-Zh-zYF"/>
+                                    <constraint firstAttribute="width" constant="120" id="FH4-oP-JGH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -69,11 +76,13 @@
                             <constraint firstItem="jaB-82-HPa" firstAttribute="leading" secondItem="K0V-sY-WFA" secondAttribute="leading" constant="35" id="Bfi-kQ-vF3"/>
                             <constraint firstItem="jiR-YA-lvf" firstAttribute="top" secondItem="K0V-sY-WFA" secondAttribute="top" constant="50" id="BoS-VA-TJr"/>
                             <constraint firstAttribute="trailing" secondItem="jiR-YA-lvf" secondAttribute="trailing" constant="20" id="Br0-No-j0l"/>
+                            <constraint firstItem="8iV-R5-Vy1" firstAttribute="centerX" secondItem="cUc-I3-NaO" secondAttribute="centerX" id="CkF-0E-W9F"/>
                             <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="IE7-i0-l8t" secondAttribute="trailing" constant="35" id="HKv-yl-cPm"/>
                             <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="jaB-82-HPa" secondAttribute="trailing" constant="35" id="Itv-BY-bpU"/>
+                            <constraint firstItem="8iV-R5-Vy1" firstAttribute="top" secondItem="jiR-YA-lvf" secondAttribute="bottom" constant="20" id="McZ-ff-V3P"/>
                             <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="2MX-xD-O0e" secondAttribute="trailing" constant="20" id="WB7-qs-Knj"/>
+                            <constraint firstItem="IE7-i0-l8t" firstAttribute="top" secondItem="2MX-xD-O0e" secondAttribute="bottom" constant="30" id="b04-F2-Ar8"/>
                             <constraint firstItem="2MX-xD-O0e" firstAttribute="leading" secondItem="K0V-sY-WFA" secondAttribute="leading" constant="20" id="neg-YJ-beR"/>
-                            <constraint firstItem="2MX-xD-O0e" firstAttribute="top" secondItem="jiR-YA-lvf" secondAttribute="bottom" constant="30" id="uTL-PI-HA5"/>
                             <constraint firstItem="jaB-82-HPa" firstAttribute="top" secondItem="IE7-i0-l8t" secondAttribute="bottom" constant="35" id="yKG-6r-bjI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0V-sY-WFA"/>
@@ -91,5 +100,6 @@
     </scenes>
     <resources>
         <image name="HomeLogo" width="681" height="194"/>
+        <image name="Pen" width="1167" height="1166"/>
     </resources>
 </document>
