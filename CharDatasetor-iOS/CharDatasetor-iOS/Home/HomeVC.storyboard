@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8F-kA-XXd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeVC-->
+        <scene sceneID="dDp-YJ-D2G">
+            <objects>
+                <viewController id="r8F-kA-XXd" customClass="HomeVC" customModule="CharDatasetor_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cUc-I3-NaO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前を半角英数字で入力" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MX-xD-O0e">
+                                <rect key="frame" x="20" y="191" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jiR-YA-lvf">
+                                <rect key="frame" x="20" y="70" width="335" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jiR-YA-lvf" secondAttribute="height" multiplier="335:91" id="fIl-F6-apI"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE7-i0-l8t">
+                                <rect key="frame" x="35" y="402" width="305" height="90"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="BHg-Ne-9D6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="はじめる">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedStartBtn:" destination="r8F-kA-XXd" eventType="touchUpInside" id="eiC-xI-7ME"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaB-82-HPa">
+                                <rect key="frame" x="35" y="527" width="305" height="90"/>
+                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="zlE-Mt-Ngl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="アンケート">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedFromBtn:" destination="r8F-kA-XXd" eventType="touchUpInside" id="Ymb-a5-UBo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IE7-i0-l8t" firstAttribute="leading" secondItem="K0V-sY-WFA" secondAttribute="leading" constant="35" id="2a9-42-GuT"/>
+                            <constraint firstItem="jiR-YA-lvf" firstAttribute="leading" secondItem="cUc-I3-NaO" secondAttribute="leading" constant="20" id="7oT-SK-C39"/>
+                            <constraint firstItem="jiR-YA-lvf" firstAttribute="centerX" secondItem="cUc-I3-NaO" secondAttribute="centerX" id="9be-qP-a5v"/>
+                            <constraint firstItem="K0V-sY-WFA" firstAttribute="bottom" secondItem="jaB-82-HPa" secondAttribute="bottom" constant="50" id="B4V-E4-byc"/>
+                            <constraint firstItem="jaB-82-HPa" firstAttribute="leading" secondItem="K0V-sY-WFA" secondAttribute="leading" constant="35" id="Bfi-kQ-vF3"/>
+                            <constraint firstItem="jiR-YA-lvf" firstAttribute="top" secondItem="K0V-sY-WFA" secondAttribute="top" constant="50" id="BoS-VA-TJr"/>
+                            <constraint firstAttribute="trailing" secondItem="jiR-YA-lvf" secondAttribute="trailing" constant="20" id="Br0-No-j0l"/>
+                            <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="IE7-i0-l8t" secondAttribute="trailing" constant="35" id="HKv-yl-cPm"/>
+                            <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="jaB-82-HPa" secondAttribute="trailing" constant="35" id="Itv-BY-bpU"/>
+                            <constraint firstItem="K0V-sY-WFA" firstAttribute="trailing" secondItem="2MX-xD-O0e" secondAttribute="trailing" constant="20" id="WB7-qs-Knj"/>
+                            <constraint firstItem="2MX-xD-O0e" firstAttribute="leading" secondItem="K0V-sY-WFA" secondAttribute="leading" constant="20" id="neg-YJ-beR"/>
+                            <constraint firstItem="2MX-xD-O0e" firstAttribute="top" secondItem="jiR-YA-lvf" secondAttribute="bottom" constant="30" id="uTL-PI-HA5"/>
+                            <constraint firstItem="jaB-82-HPa" firstAttribute="top" secondItem="IE7-i0-l8t" secondAttribute="bottom" constant="35" id="yKG-6r-bjI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K0V-sY-WFA"/>
+                    </view>
+                    <connections>
+                        <outlet property="formBtn" destination="jaB-82-HPa" id="Rya-e9-jtS"/>
+                        <outlet property="startBtn" destination="IE7-i0-l8t" id="sI3-XX-hmW"/>
+                        <outlet property="userNameTextFiled" destination="2MX-xD-O0e" id="oeT-gO-Sk9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3IB-kM-CbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="HomeLogo" width="681" height="194"/>
+    </resources>
+</document>
