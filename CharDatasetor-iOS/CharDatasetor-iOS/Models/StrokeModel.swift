@@ -21,4 +21,18 @@ class StrokeModel {
         points.append( pt )
     }
     
+    func dict() -> Dictionary<String, Any> {
+        var dict = Dictionary<String, Any>()
+        
+        var arrayPt: [Dictionary<String,CGFloat>] = []
+        
+        for point in points {
+            arrayPt.append( point.dict() )
+        }
+        
+        dict["points"] = arrayPt
+        
+        return dict
+    }
+    
 }

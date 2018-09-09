@@ -42,7 +42,6 @@ class DrawingVC: UIViewController {
         }
         
         for figure in figures {
-            
             let name = figure["Name"] as! String
             let fileName = figure["FileName"] as! String
             let strokeCount = figure["StrokeCount"] as! Int
@@ -53,7 +52,6 @@ class DrawingVC: UIViewController {
                     listCharStrokes.append( charStroke )
                 }
             }
-            
         }
         
         if bShuffleMode {

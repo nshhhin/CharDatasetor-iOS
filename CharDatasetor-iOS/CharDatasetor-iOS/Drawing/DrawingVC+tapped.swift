@@ -35,7 +35,7 @@ extension DrawingVC {
         child.putData(data, metadata: nil) { (metadata, nil) in
         }
         
-        let jsonObj = ["Name":"Taro"]
+        let jsonObj = curCharStroke.dict()
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
