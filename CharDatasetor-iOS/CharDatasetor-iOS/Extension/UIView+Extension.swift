@@ -2,8 +2,8 @@
 import UIKit
 
 extension UIView {
-    func screenShot(width: CGFloat) -> UIImage? {
-        let imageBounds = CGRect(x: 0, y: 0, width: width, height: bounds.size.height * (width / bounds.size.width))
+    func screenShot() -> UIImage? {
+        let imageBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
         
         UIGraphicsBeginImageContextWithOptions(imageBounds.size, true, 0)
         

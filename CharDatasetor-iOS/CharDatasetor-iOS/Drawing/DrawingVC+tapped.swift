@@ -1,6 +1,7 @@
 
 import Foundation
 import UIKit
+import FirebaseStorage
 
 extension DrawingVC {
     
@@ -20,6 +21,35 @@ extension DrawingVC {
             
             return
         }
+        
+        
+        // Firebaseにとりあえず保存
+        let storage = Storage.storage()
+        let reference = storage.reference(forURL: "gs://chardatasetor-ios.appspot.com")
+        let name = curCharStroke.name
+        let id = curCharStroke.id
+        let canvasImage = canvas.image
+        let userName = "Aさん"
+        var child = reference.child( userName + "/" + name + "/" + String(id) + ".png")
+        var data = UIImagePNGRepresentation(canvasImage!)!
+        child.putData(data, metadata: nil) { (metadata, nil) in
+        }
+        
+        let jsonObj = ["Name":"Taro"]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
+            
+            child = reference.child( userName + "/" + name + "/" + String(id) + ".json")
+            child.putData(jsonData, metadata: nil) { (metadata, nil) in
+            }
+        } catch let error {
+            print(error)
+        }
+        
+        
+        
+        
         
         curCharStroke.saveStrokes()
         curCharStroke = listCharStrokes.removeFirst()
