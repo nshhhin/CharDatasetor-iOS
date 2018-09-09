@@ -38,6 +38,8 @@ extension DrawingVC {
         
         let jsonObj = curCharStroke.dict()
         
+        
+        // 🐛BUG:全部1.jsonになってしまうバグ🐛
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
             child = reference.child( fileName + ".json")
