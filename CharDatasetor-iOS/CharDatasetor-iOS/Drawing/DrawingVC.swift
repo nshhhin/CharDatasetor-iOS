@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 class DrawingVC: UIViewController {
     
@@ -115,6 +116,24 @@ class DrawingVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         .show()
+    }
+    
+    func postMySQL(userName: String, charJSON: String){
+        
+        let url = "https://nino.nkmr.io/api/charDatasetorAPI.php"
+        
+        let parameters:[String: Any] = [
+            "userName": userName,
+            "charJSON": charJSON
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters).responseJSON { response in
+            if let result = response.result.value as? [String: Any] {
+                print(result)
+            }
+        }
+            
+        
     }
     
 }

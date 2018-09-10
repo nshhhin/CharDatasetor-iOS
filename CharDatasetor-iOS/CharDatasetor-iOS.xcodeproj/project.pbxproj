@@ -37,6 +37,8 @@
 		F379CEE6214572BC00113841 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEE5214572BC00113841 /* DesignableView.swift */; };
 		F379CEEB21462EA600113841 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F379CEE921462E9A00113841 /* SwiftyJSON.framework */; };
 		F379CEEC21462EA600113841 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F379CEE921462E9A00113841 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F379CEEE214654F300113841 /* HomeVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEED214654F300113841 /* HomeVC+UITextFieldDelegate.swift */; };
+		F379CEF02146558000113841 /* HomeVC+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEEF2146558000113841 /* HomeVC+UIGestureRecognizerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		F379CEE5214572BC00113841 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		F379CEE721462E9100113841 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		F379CEE921462E9A00113841 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		F379CEED214654F300113841 /* HomeVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		F379CEEF2146558000113841 /* HomeVC+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				F338A0872144DE6800221ECD /* HomeVC.swift */,
+				F379CEED214654F300113841 /* HomeVC+UITextFieldDelegate.swift */,
+				F379CEEF2146558000113841 /* HomeVC+UIGestureRecognizerDelegate.swift */,
 				F338A0892144DE9B00221ECD /* HomeVC.storyboard */,
 			);
 			path = Home;
@@ -525,10 +531,12 @@
 				F338A0942144EAE800221ECD /* UIApplication+Extension.swift in Sources */,
 				F379CEE6214572BC00113841 /* DesignableView.swift in Sources */,
 				F338A07C214126BC00221ECD /* UIView+Extension.swift in Sources */,
+				F379CEEE214654F300113841 /* HomeVC+UITextFieldDelegate.swift in Sources */,
 				F338A0672140C4DD00221ECD /* CharStrokeModel.swift in Sources */,
 				F338A0692140C51700221ECD /* StrokeModel.swift in Sources */,
 				F338A03B213FB33600221ECD /* DrawingVC.swift in Sources */,
 				F338A039213FB33600221ECD /* AppDelegate.swift in Sources */,
+				F379CEF02146558000113841 /* HomeVC+UIGestureRecognizerDelegate.swift in Sources */,
 				F379CEE4214552FE00113841 /* CGPoint+Extension.swift in Sources */,
 				F338A0842144C88100221ECD /* Array+Extension.swift in Sources */,
 				F338A08E2144E7F500221ECD /* DrawingVC+touchs.swift in Sources */,

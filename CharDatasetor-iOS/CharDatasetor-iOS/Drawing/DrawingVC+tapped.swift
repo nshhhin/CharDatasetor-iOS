@@ -76,14 +76,8 @@ extension DrawingVC {
         let jsonData = jsonStr.data(using: String.Encoding.utf8)!
         let jsonURL = URL(fileURLWithPath: absoluteTargetDir + "/" + String(id) + ".json")
         
-//        if( FileManager.default.fileExists( atPath: absoluteTargetDir + "/" + String(id) + ".json") ) {
-//            
-//        } else {
-//            print("ファイルなし")
-//        }
-            
-        
-        
+        postMySQL(userName: userName!, charJSON: jsonStr)
+     
         do {
             try jsonData.write(to: jsonURL)
         } catch let error as NSError {

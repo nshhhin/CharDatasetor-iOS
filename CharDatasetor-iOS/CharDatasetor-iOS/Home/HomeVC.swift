@@ -11,7 +11,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var userNameTextFiled: UITextField! {
         didSet {
             if appDelegate.userName != nil {
+                userNameTextFiled.delegate = self
                 userNameTextFiled.text = appDelegate.userName
+                userNameTextFiled.keyboardType = UIKeyboardType.default
+                userNameTextFiled.returnKeyType = .done
+                userNameTextFiled.clearButtonMode = UITextFieldViewMode.whileEditing
+                
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+                tapGestureRecognizer.delegate = self
+                self.view.addGestureRecognizer(tapGestureRecognizer)
             }
         }
     }
@@ -20,6 +28,7 @@ class HomeVC: UIViewController {
         let userName = userNameTextFiled.text
         appDelegate.userName = userName
         userDefaults.set( userName, forKey: "userName")
+        
         
         let storyboard: UIStoryboard = UIStoryboard(name: "DrawingVC", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "DrawingVC")
