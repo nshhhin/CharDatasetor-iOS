@@ -35,6 +35,8 @@
 		F338A0A02145479C00221ECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F338A09F2145479C00221ECD /* GoogleService-Info.plist */; };
 		F379CEE4214552FE00113841 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEE3214552FE00113841 /* CGPoint+Extension.swift */; };
 		F379CEE6214572BC00113841 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379CEE5214572BC00113841 /* DesignableView.swift */; };
+		F379CEEB21462EA600113841 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F379CEE921462E9A00113841 /* SwiftyJSON.framework */; };
+		F379CEEC21462EA600113841 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F379CEE921462E9A00113841 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F379CEEC21462EA600113841 /* SwiftyJSON.framework in Embed Frameworks */,
 				F338A09D2145281700221ECD /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -110,6 +113,8 @@
 		F338A09F2145479C00221ECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F379CEE3214552FE00113841 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		F379CEE5214572BC00113841 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		F379CEE721462E9100113841 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
+		F379CEE921462E9A00113841 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F379CEEB21462EA600113841 /* SwiftyJSON.framework in Frameworks */,
 				F338A09C2145281700221ECD /* Alamofire.framework in Frameworks */,
 				ED2D08ED6DCAB554A584A25C /* Pods_CharDatasetor_iOS.framework in Frameworks */,
 			);
@@ -215,6 +221,8 @@
 		F338A06A2140DDF100221ECD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F379CEE921462E9A00113841 /* SwiftyJSON.framework */,
+				F379CEE721462E9100113841 /* SwiftyJSON.framework.dSYM */,
 				F338A09A2145281200221ECD /* Alamofire.framework */,
 				F338A06D2140DDFD00221ECD /* RealmSwift.framework */,
 				F338A06B2140DDF100221ECD /* Realm.framework */,
@@ -496,6 +504,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);

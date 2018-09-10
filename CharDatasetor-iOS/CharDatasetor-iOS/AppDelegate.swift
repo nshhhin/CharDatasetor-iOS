@@ -13,10 +13,16 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userName: String?
+    let userDefaults = UserDefaults.standard
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        if userDefaults.string(forKey: "userName") != nil {
+            userName = userDefaults.string(forKey: "userName")
+        }
         return true
     }
 

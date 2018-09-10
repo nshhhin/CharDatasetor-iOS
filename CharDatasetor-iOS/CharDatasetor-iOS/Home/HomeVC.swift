@@ -3,22 +3,24 @@ import UIKit
 
 class HomeVC: UIViewController {
     
-    @IBOutlet weak var userNameTextFiled: UITextField!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var formBtn: UIButton!
-    @IBOutlet weak var submitBtn: UIButton! {
+    @IBOutlet weak var userNameTextFiled: UITextField! {
         didSet {
-            submitBtn.isEnabled = false
-            submitBtn.alpha = 0.5
+            if appDelegate.userName != nil {
+                userNameTextFiled.text = appDelegate.userName
+            }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func tappedStartBtn(_ sender: Any) {
+        let userName = userNameTextFiled.text
+        appDelegate.userName = userName
+        userDefaults.set( userName, forKey: "userName")
+        
         let storyboard: UIStoryboard = UIStoryboard(name: "DrawingVC", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "DrawingVC")
         next.modalTransitionStyle = .crossDissolve

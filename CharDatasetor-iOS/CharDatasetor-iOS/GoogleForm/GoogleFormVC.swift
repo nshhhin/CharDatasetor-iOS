@@ -17,7 +17,7 @@ class GoogleFormVC: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func tappedFinishBtn(_ sender: Any) {
-        // ✏️TODO✏️ : MySQLに追加処理
+        // ✏️TODO: MySQLに追加処理✏️
 //        Alamofire.request(.post, "http://httpbin.org/get", parameters: ["foo": "bar"])
         dismiss(animated: true, completion: nil)
     }

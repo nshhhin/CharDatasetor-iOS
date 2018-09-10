@@ -9,6 +9,7 @@ class CharStrokeModel {
     var name = "あ"
     var hand = "利き手"
     var maxStrokeCount = 0
+    var createdAt: Date?
     
     init(){
         
@@ -50,6 +51,14 @@ class CharStrokeModel {
         dict["id"] = self.id
         dict["hand"] = self.hand
         dict["strokeLength"] = self.strokes.count
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        
+        // ⚠️dictを作る時間を現在いれてる⚠️
+        dict["createdAt"] = dateFormatter.string(from: Date())
+
         
         return dict
     }

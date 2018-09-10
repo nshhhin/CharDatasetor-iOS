@@ -2,8 +2,13 @@
 import Foundation
 import UIKit
 import FirebaseStorage
+import SwiftyJSON
 
 extension DrawingVC {
+    
+    @IBAction func tappedDismissBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func tappedUndoBtn(_ sender: Any) {
         curCharStroke.removeStroke()
@@ -13,33 +18,32 @@ extension DrawingVC {
     
     @IBAction func tappedNextBtn(_ sender: Any) {
         if curCharStroke.strokes.count != curCharStroke.maxStrokeCount {
-            // ✏️TODO✏️ : アラート表示
-            
             UIAlertController(title: "確認", message: "画数が一致しません", preferredStyle: .alert)
             .addAction(title: "OK", style: .cancel)
             .show()
-            
             return
         }
-        
         
         // Firebaseにとりあえず保存
         let storage = Storage.storage()
         let reference = storage.reference(forURL: "gs://chardatasetor-ios.appspot.com")
         let name = curCharStroke.name
+        let hand = curCharStroke.hand
         let id = curCharStroke.id
         let canvasImage = canvas.image
-        let userName = "Aさん"
-        let fileName = userName + "/" + name + "/" + String(id)
+        let fileName = userName! + "/" + hand + "/" + name + "/" + String(id)
         var child = reference.child(  fileName + ".png")
         var data = UIImagePNGRepresentation(canvasImage!)!
         child.putData(data, metadata: nil) { (metadata, nil) in
         }
         
+        print( "==================" )
+        print( name, id, userName! )
+        print( "==================" )
+            
+        
         let jsonObj = curCharStroke.dict()
         
-        
-        // 🐛BUG:全部1.jsonになってしまうバグ🐛
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
             child = reference.child( fileName + ".json")
@@ -49,19 +53,49 @@ extension DrawingVC {
             print(error)
         }
         
-        let jsonStr = jsonObj.description
-        data = jsonStr.data(using: String.Encoding.utf8)!
+        // ローカルに一応保存する処理を追加
+        
+        // 🗒 MEMO: なんだかフォルダを作ってからではないと,write(to:)できないらしい...前までできたのに... 🗒
+        let documentPath = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory,
+            .userDomainMask, true)[0]
+        
+        let targetDir = userName! + "/" + hand + "/" + name
+        let absoluteTargetDir = documentPath + "/" + targetDir
+        do {
+            try FileManager.default.createDirectory(atPath: absoluteTargetDir, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            print("failed to write: \(error)")
+        }
+        
+        
+        
+        // 筆跡データの保存
+        let json = JSON(jsonObj)
+        let jsonStr = json.description
+        let jsonData = jsonStr.data(using: String.Encoding.utf8)!
+        let jsonURL = URL(fileURLWithPath: absoluteTargetDir + "/" + String(id) + ".json")
+        
+//        if( FileManager.default.fileExists( atPath: absoluteTargetDir + "/" + String(id) + ".json") ) {
+//            
+//        } else {
+//            print("ファイルなし")
+//        }
+            
+        
         
         do {
-            let documentPath = NSSearchPathForDirectoriesInDomains(
-                .documentDirectory,
-                .userDomainMask, true)[0]
-            
-            let url = URL(fileURLWithPath: documentPath + "/" + fileName + ".json")
-            print(url)
-            try data.write(to: url)
-        } catch {
-            // Failed to write file
+            try jsonData.write(to: jsonURL)
+        } catch let error as NSError {
+            print("failed to write: \(error)")
+        }
+
+        // キャンバス画像を保存
+        let imageURL = URL(fileURLWithPath: absoluteTargetDir + "/" + String(id) + ".png")
+        do {
+            try UIImagePNGRepresentation(canvasImage!)?.write(to: imageURL)
+        } catch let error as NSError {
+            print("failed to write: \(error)")
         }
         
         curCharStroke.saveStrokes()
@@ -69,11 +103,7 @@ extension DrawingVC {
         updateProgress()
         
         if listCharStrokes.count == 0 {
-            UIAlertController(title: "ありがとうございました", message: "これでデータセット構築は終了です", preferredStyle: .alert)
-                .addAction(title: "OK", style: .default) { action in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                .show()
+            showFinishAlert()
             return
         }
         
@@ -81,10 +111,6 @@ extension DrawingVC {
         
         redrawCanvas()
         updateLabel()
-    }
-    
-    @IBAction func tappedDismissBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
     
 }
