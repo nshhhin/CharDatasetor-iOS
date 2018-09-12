@@ -16,12 +16,14 @@ class HomeVC: UIViewController {
                 userNameTextFiled.keyboardType = UIKeyboardType.default
                 userNameTextFiled.returnKeyType = .done
                 userNameTextFiled.clearButtonMode = UITextFieldViewMode.whileEditing
-                
-                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
-                tapGestureRecognizer.delegate = self
-                self.view.addGestureRecognizer(tapGestureRecognizer)
             }
         }
+    }
+    
+    override func viewDidLoad(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        tapGestureRecognizer.delegate = self
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @IBAction func tappedStartBtn(_ sender: Any) {
